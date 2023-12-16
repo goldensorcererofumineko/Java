@@ -98,3 +98,19 @@ class Sample10
     }
   }
 }
+
+class Sample11 {
+  public static void main(String[] args) {
+    int number3 = 3;
+    int number4 = 5;
+    boolean isOddNumber = false;
+
+    isOddNumber = (number3 + number4) % 2 == 1;
+
+    if (isOddNumber) {
+      System.out.println("奇数");
+    } else {
+      System.out.println("偶数");
+    }
+  }
+}
