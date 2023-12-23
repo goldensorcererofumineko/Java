@@ -291,3 +291,243 @@ class Sample25{
     }
   }
 }
+
+class Sample26{
+  public static void main(String[] args) {
+    int number = 0;
+
+    while (number < 6) {
+      System.out.println(number);
+      number ++;
+    }
+  }
+}
+
+class Sample27 {
+  public static void main(String[] args) {
+    int[] nums = new int[3];
+    nums[0] = 1;
+    nums[1] = 2;
+    nums[2] = 3;
+
+    for (int i = 0; i < nums.length; i++) {
+      System.out.println(nums[i]);
+    }
+  }
+}
+
+class Sample28 {
+  public static void main(String[] args) {
+    int[] nums = new int[3];
+    nums[0] = 2;
+    nums[1] = 4;
+    nums[2] = 6;
+
+    for (int i = 0; i < nums.length; i++) {
+      System.out.println(nums[i]*nums[i]);
+    }
+  }
+}
+
+class Sample29{
+  public static void main(String[] args) {
+    int[][][] numberList = {
+       {
+          {1,2,3},
+          {4,5,6},
+          {7,8,9}
+      },
+      {
+          {10,11,12},
+          {13,14,15}
+      },
+      {
+          {16,17,18},
+          {19,20,21}
+      }
+    };
+
+    for (int i = 0; i < numberList.length; i++) {
+      for (int j = 0; j < numberList[i].length; j++) {
+        for (int k = 0; k < numberList[i][j].length; k++) {
+          System.out.println(numberList[i][j][k] + " ");
+        }
+      }
+    }
+  }
+}
+
+class Sample30{
+  public static void main(String[] args) {
+    for (int i = 0; i < 10; i++) {
+      if (i == 7) {
+        break;
+      }
+      System.out.println(i);
+    }
+  }
+}
+
+class Sample31{
+  public static void main(String[] args) {
+    for (int i = 0; i <10; i++) {
+      if (i == 7) {
+        continue;
+      }
+      System.out.println(i);
+    }
+  }
+}
+
+class Sample32{
+  public static void main(String[] args) {
+    for (int i = 1000; i <= 2000; i++){
+      if ((i - 7) % 10 != 0) {
+        continue;
+      }
+      System.out.print(i + " ");
+    }
+  }
+}
+
+class Sample33 {
+  public static void main(String[] args) {
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j <= i; j++) {
+        System.out.print("0");
+      }
+      System.out.println();  // 改行
+    }
+  }
+}
+
+
+class class34 {
+    public static void main(String[] args) {
+        for (int i = 0; i < 3; i++) {
+            // 空白を出力
+            for (int j = 0; j < 2 - i; j++) {
+                System.out.print(" ");
+            }
+
+            // "0" を出力
+            for (int k = 0; k < 2 * i + 1; k++) {
+                System.out.print("0");
+            }
+
+            // 改行
+            System.out.println();
+        }
+    }
+}
+
+class Sample35 {
+  public static void main(String[] args) {
+    int height = 5;
+    int width = 5;
+    int start = (width - 1) / 2;
+    int end = start;
+
+    for (int i = 0; i < height; i++) {
+      for (int j = 0; j < width; j++) {
+        if (j >= start && j <= end) {
+          System.out.print("0");
+        } else {
+          System.out.print(" ");
+        }
+      }
+      System.out.println();
+
+      if (i < height / 2) {
+        start--;
+        end++;
+      } else {
+        start++;
+        end--;
+      }
+    }
+  }
+}
+
+class Sample36 {
+    public static void main(String[] args) {
+        int number1 = 5;
+        int number2 = 3;
+        String text = "あああああ";
+        boolean boolValue = true;
+        boolean result = isEven(number1, number2, boolValue);
+        System.out.println(text);
+        System.out.println(result);
+    }
+
+    public static boolean isEven(int minuend, int subtrahend, boolean boolValue) {
+        return boolValue && (minuend - subtrahend) % 2 == 0;
+    }
+}
+
+
+
+class Sample100 {
+    public static void main(String[] args) {
+        int number1 = 5;
+        int number2 = 3;
+        String text = "あああああ";
+        boolean boolValue = true;
+
+        boolValue = isEven(number1, number2);
+        System.out.print(boolValue);
+    }
+
+    /**
+     * 仮引数1から仮引数2を引いた差が偶数かどうか判定する
+     */
+    public static boolean isEven(int minuend, int subtrahend) {
+        return (minuend - subtrahend) % 2 == 0;
+    }
+}
+
+class EvenNumberFinder {
+    public static void main(String[] args) {
+        // 以下の配列の中から偶数のみを出力する処理を実装してください。
+        int[] numbers = {3, 8, 15, 20, 27, 32, 39, 44};
+
+        //ここから解答
+        for (int number : numbers) {
+            if (number % 2 == 0) {
+                System.out.println(number);
+            }
+        }
+    }
+}
+
+class Sample38 {
+    public static void main(String[] args) {
+        int number1 = 5;
+        int number2 = 3;
+        String text = "あああああ";
+        boolean boolValue = true;
+
+        boolValue = reverse(boolValue);
+        System.out.print(boolValue);
+    }
+
+    public static boolean reverse(boolean value) {
+        return !value;
+    }
+}
+
+class Sample39 {
+    public static void main(String[] args) {
+        int number1 = 5;
+        int number2 = 3;
+        String text = "あああああ";
+        boolean boolValue = true;
+
+        String word = contact(number1,text);
+        System.out.print(word);
+    }
+
+    public static String contact(int firstValue, String  secondValue) {
+        return firstValue + ":" + secondValue;
+    }
+}
