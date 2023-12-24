@@ -531,3 +531,46 @@ class Sample39 {
         return firstValue + ":" + secondValue;
     }
 }
+
+class Sample40 {
+    public static void main(String[] args) {
+        int number1 = 5;
+        int number2 = 3;
+        String text = "あああああ";
+        boolean boolValue = true;
+
+        int result = getResult(number1,boolValue);
+        System.out.print(result);
+    }
+
+    public static int getResult(int number, boolean isAdd) {
+      if(isAdd) {
+        return ++number;
+      }
+      else {
+        return --number;
+      }
+    }
+}
+
+class Sample41 {
+    public static void main(String[] args) {
+        int number1 = 5;
+        int number2 = 3;
+        String text = "あああああ";
+        boolean boolValue = true;
+
+        repeat(number1, text);
+    }
+
+    public static void repeat(int loopCount, String text) {
+         if (loopCount <= 0 || loopCount > 10) {
+            System.out.print("範囲外の入力値です");
+            return;
+        }
+
+        for (int i = 0; i < loopCount; i++) {
+            System.out.println(text);
+        }
+    }
+}
