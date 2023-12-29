@@ -575,22 +575,236 @@ class Sample41 {
     }
 }
 
-class Calculation {
+/* class Calculation {
     public String operator = "+";
     public int num1 = 10;
     public int num2 = 5;
-}
+} */
 
-class Execution {
+/* class Execution {
     public static void main(String[] args) {
     Application app = new Application();
     String result = app.calc.num1 + app.calc.operator + app.calc.num2 + "=" + (app.calc.num1 + app.calc.num2);
     System.out.println(app.msg);
     System.out.println(result);
     }
-}
+} */
 
+/* 
 class Application {
   public Calculation calc = new Calculation();
   public String msg = "計算結果表示";
+} */
+
+/* class Calculation {
+    int num = 15;
+
+    public Calculation() {
+        // 処理追加
+        System.out.println("コンストラクタの呼び出し");
+    }
+}
+
+class Execution {
+    public static void main(String[] args) {
+        // 出力処理
+        Calculation calc = new Calculation();
+        System.out.println("num = " + calc.num);
+    }
+} */
+/* 
+class Polygon {
+    public void introduction() {
+        System.out.println("多角形です。");
+    }
+}
+
+class Square extends Polygon {
+    @Override
+    public void introduction() {
+        System.out.println("正方形です。");
+    }
+}
+
+class Triangle extends Polygon {
+    @Override
+    public void introduction() {
+        System.out.println("三角形です。");
+    }
+}
+
+class Execution {
+    public static void main(String[] args) {
+        // 処理
+    Shape pol = new Shape();
+    pol.polygons = new Polygon[] { new Polygon(), new Square(), new Triangle() };
+    for (int i = 0; i < pol.polygons.length; i++) {
+      pol.polygons[i].introduction();
+    }
+  }
+}
+
+// Shape クラス
+class Shape {
+  public Polygon[] polygons;
+}
+*/
+
+/* 
+class Polygon {
+    public String introduction() {
+        return "多角形";
+    }
+}
+
+class Square extends Polygon {
+    @Override
+    public String introduction() {
+        return "正方形";
+    }
+    // 出力処理
+    public String text() {
+        return introduction() + "は" + super.introduction() + "です。";
+    }
+    public static void main(String[] args) {
+      Square square = new Square();
+      System.out.println(square.text());
+    }
+}
+*/
+
+class LunchBox {
+    private String locationDish = "玉子焼き";
+    private String locationRice = "鮭おにぎり";
+    // 処理追加
+        public void setDish (String dish) {
+            this.locationDish = dish;
+        }
+        public void setRice (String rice) {
+            this.locationRice = rice;
+        }
+        public String getDish () {
+            return locationDish;
+        }
+        public String getRice () {
+            return locationRice;
+        }
+}
+
+class Execution {
+    public static void main(String[] args) {
+        // 出力処理
+        LunchBox lunch = new LunchBox();
+        lunch.setDish("鶏肉");
+        lunch.setRice("五目ごはん");
+        System.out.println("おかずには" + lunch.getDish() + "が入っていて、ごはんには" + lunch.getRice() + "が入っています。");
+    }
+}
+
+class Question01 {
+    public static void main(String[] args) {
+        // Q1
+        /* 
+        Member member = new Member();
+        // Q2
+        member.name = "山田太郎";
+        System.out.println("名前:" + member.name);
+        // Q3
+        member.age = 18;
+        // Q7
+        Member member = new Member("花子", 20);
+        member.showProperties();
+        */
+        // Q11
+        MemberDetails details = new MemberDetails("山田", 28, 178.5);
+
+        details.setHeight(178.5);
+        details.showProperties();
+    }
+}
+
+class Member {
+    // Q3
+    private String name = "";
+    private int age = -1;
+    // Q9
+    private static int member = 0;
+    // Q4
+    public void setName(String name) {
+      this.name = name;
+    }
+    // Q5
+    public void setAge(int age) {
+      if (age > 0) {
+        this.age = age;
+      }
+      else {
+        System.out.println("不正な値です");
+      }
+    }
+    public String getName() {
+      return this.name;
+    }
+    public int getAge() {
+      return this.age;
+    }
+    public void showProperties() {
+      System.out.println("名前:" + getName());
+      System.out.println("年齢:" + getAge() + "歳");
+    }
+    // Q7
+    public Member() {
+      System.out.println("インスタンスが生成されました");
+      // Q9  
+      member++;
+    }
+    // Q8
+    public Member(String name, int age) {
+      this();
+      setName(name);
+      setAge(age);
+    }
+    // Q10
+    public static void showMember() {
+      System.out.println("メンバーの人数は" + member + "人です");
+    }
+}
+// Q11
+class MemberDetails extends Member {
+  private double height;
+  public void setHeight(double height) {
+    this.height = height;
+  }
+  public double getHeight() {
+    return this.height;
+  }
+  public void showHeight() {
+    System.out.println("身長は" + this.height + "cmです");
+  }
+  // Q12
+  public MemberDetails(String name, int age, double height) {
+    super(name, age);
+    setHeight(height);
+  }
+  public void showProperties() {
+    super.showProperties();
+    System.out.println("身長は" + this.height + "cmです");
+  }
+}
+class Execution1 {
+    public static void main(String[] args) {
+        int diameter = 5;
+        System.out.println("円の直径：" + diameter + "cm");
+        // 出力処理
+        int result = Calculation.circumferenceLength(diameter);
+        System.out.println("演習の長さ: 約" + result);
+    }
+}
+
+// Calculation クラス
+class Calculation {
+  public static double pi = 3.14;
+  public static int circumferenceLength(int diameter) {
+    return (int) (pi * diameter);
+  }
 }
