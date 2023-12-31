@@ -808,3 +808,29 @@ class Calculation {
     return (int) (pi * diameter);
   }
 }
+
+abstract class Store {
+protected String name;
+public abstract void Payment();
+public Store (String name) {
+  this.name = name;
+ }
+}
+
+class ConvenienceStore extends Store {
+  public ConvenienceStore(String name) {
+    super(name);
+  }
+  public void Payment() {
+    System.out.println(name + "のレジで支払います");
+  }
+}
+
+class StoreName {
+    public static void main(String[] args) {
+        ConvenienceStore convenienceStore = new ConvenienceStore("セブンイレブン");
+        convenienceStore.Payment();
+    }
+}
+
+/*標準API */
