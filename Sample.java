@@ -867,3 +867,16 @@ Boolean.compare(false, true);  // -1
 Boolean.compare(false, false); //  0
 Boolean.compare(true, false);  //  1
  */
+
+ /**
+  * Sample
+  */
+class SampleAPI {
+
+    public static void main(String[] args) {
+      String str2 = "abcdefg";
+        System.out.println(str2.substring(3));
+    }
+}
+
+ 
