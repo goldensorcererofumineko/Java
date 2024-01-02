@@ -833,4 +833,37 @@ class StoreName {
     }
 }
 
-/*標準API */
+/*標準API
+ * java.lang
+
+https://docs.oracle.com/javase/jp/8/docs/api/java/lang/package-summary.html
+
+java.util
+
+https://docs.oracle.com/javase/jp/8/docs/api/java/util/package-summary.html
+
+java.io
+
+https://docs.oracle.com/javase/jp/8/docs/api/java/io/package-summary.html
+
+java.time
+
+https://docs.oracle.com/javase/jp/8/docs/api/java/time/package-summary.html
+
+// メソッドの利用例⑴ 型変換
+Integer.parseInt("1");     // String -> int
+Float.parseFloat("1.1F");  // String -> float
+Double.parseDouble("1.1"); // String -> double
+Boolean.valueOf("true");   // String -> boolean
+
+Integer.toString(1);       // int     -> String
+Float.toString(1.1F);      // float   -> String
+Double.toString(1.1);      // double  -> String
+Boolean.toString(true);    // boolean -> String
+
+
+// メソッドの利用例⑵ 値の比較
+Boolean.compare(false, true);  // -1
+Boolean.compare(false, false); //  0
+Boolean.compare(true, false);  //  1
+ */
