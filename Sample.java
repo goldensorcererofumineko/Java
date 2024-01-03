@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.Arrays;
+
 class Sample3
 {
     public static void main(String[] args)
@@ -879,4 +882,42 @@ class SampleAPI {
     }
 }
 
- 
+
+
+class SampleAPI1 {
+  public static void main(String[] args) {
+      Random random = new Random();
+  int randomNumber = random.nextInt(14);
+  if (randomNumber == 0) {
+    System.out.println("0です。");
+  }
+  if (randomNumber == 5) {
+    System.out.println("5です。");
+  }
+  if (randomNumber == 13) {
+    System.out.println("11以上です。");
+  }
+  }
+}
+
+
+
+class SampleAPI2 {
+  public static void main(String[] args) {
+    int[] numbers = {29, 4, 58, 13, 5, 2, 3, 33, 47, 11};
+    Arrays.sort(numbers);
+    for (int i = 0; i < numbers.length; i++) {
+      System.out.print(numbers[i] + " ");
+        
+      }
+    }
+  }
+
+  /*
+  標準入力　java.io.BufferedReader
+
+java.io.InputStreamReader
+
+java.io.IOException
+
+java.lang.System.in　　*/
