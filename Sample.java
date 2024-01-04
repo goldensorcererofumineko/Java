@@ -1,5 +1,8 @@
 import java.util.Random;
 import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 class Sample3
 {
@@ -921,3 +924,17 @@ java.io.InputStreamReader
 java.io.IOException
 
 java.lang.System.in　　*/
+/**
+ * Sample
+ */
+class SubSample {
+    /**
+     * System.in ... 入力を受け付ける
+     * InputStreamReader ... 入力値を文字列として受け取る(1文字づつ)
+     * BufferedReader ... 入力した文字列を一行丸ごと読み込む
+     */
+    BufferedReader br = new BufferedReader(
+        new InputStreamReader(System.in)
+    );
+}
+  
