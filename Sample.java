@@ -933,8 +933,14 @@ class SubSample {
      * InputStreamReader ... 入力値を文字列として受け取る(1文字づつ)
      * BufferedReader ... 入力した文字列を一行丸ごと読み込む
      */
+public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(
         new InputStreamReader(System.in)
     );
+    System.out.println("入力してください");
+    String line = br.readLine();
+    System.out.println("入力完了");
+    System.out.println("入力値:" + line);
+    System.out.println("文字数:" + line.length());
 }
-  
+}
