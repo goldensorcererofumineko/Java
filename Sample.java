@@ -2,7 +2,11 @@ import java.util.Random;
 import java.util.Arrays;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.time.LocalDateTime;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 class Sample3
 {
@@ -944,3 +948,69 @@ public static void main(String[] args) throws IOException {
     System.out.println("文字数:" + line.length());
 }
 }
+
+/* 
+日付の変更の仕方
+LocalDateTime dateTime = LocalDateTime.of(2000, 1, 23, 1, 23, 45); // 2000-01-23T01:23:45
+// 100日前のLocalDateTimeを返却します
+LocalDateTime dateTime2 = dateTime.minusDays(100); // 1999-10-15T01:23:45
+// 日付を15に変更しLocalDateTimeを返却します
+LocalDateTime dateTime2 = dateTime.withDayOfMonth(15); // 2000-02-15T01:23:45
+
+フォーマットを用意してオーバーロード
+DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH時mm分ss秒");
+// 保存されるフォーマットはあくまで「 年-月-日T時:分:秒 」です
+LocalDateTime dateTime = LocalDateTime.parse("2000年01月23日 01時23分45秒", format); // 2000-01-23T01:23:45
+*/
+class Sample61 {
+    public static void main(String[] args) {
+        LocalDateTime datetime = LocalDateTime.now();
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy年MM月dd日 h時mm分ss秒");
+        // 指定フォーマットに合わせて現在日時を文字列に変換
+        String formatDate = datetime.format(pattern);
+
+        System.out.println(formatDate);
+    }
+}  
+//*
+/* 
+ * String型の値を格納するArrayListのインスタンスを生成します。
+ * List<参照型名> 変数名 = new ArrayList<参照型名>();
+
+List<String> list = new ArrayList<String>();
+List<Integer> numList = new ArrayList<Integer>();
+numList.add(1);     // 0番目に追加
+numList.set(0, 10); // 0番目の要素を10に変更する
+numList.remove(1); // 2が削除される
+numList.get(0); // 10
+numList.size(); // 要素数
+numList.indexOf(1); // 検出
+List<String> strList = new ArrayList<String>();
+strList.isEmpty(); // true
+strList.add("a");
+// 要素があるとfalse
+strList.isEmpty(); // false
+strList.clear();   // リストの要素をすべて削除します
+strList.isEmpty(); // true
+for (int i = 0; i < strList.size(); i++) {
+    System.out.print(strList.get(i) + " ");
+}  // sizeメソッドを用いて中身の出力繰り返しが可能
+/**
+ * ArrayList.forEach( 引数 -> {
+ *     処理
+ * });
+ *
+ * 出力結果) コアラ ラッパ パイナップル
+
+strList.forEach( str -> {
+    System.out.print(str + " ");
+});  // for拡張に近い処理
+// 処理が一行(return文なし)
+num -> System.out.println(num)
+// 処理が一行(return文あり)
+num -> num * num
+// 処理が複数行
+num -> {
+    int square = num * num;
+    System.out.println("num * num = " + square);
+} */
