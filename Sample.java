@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
 
 class Sample3
 {
@@ -1014,3 +1018,386 @@ num -> {
     int square = num * num;
     System.out.println("num * num = " + square);
 } */
+class Array {
+  public static void main(String[] args) {
+    List<Integer> list = new ArrayList<Integer>();
+    list.add(42);
+    list.add(24);
+    list.add(128);
+    list.add(127);
+    // Q2
+    list.set(1, 22);
+    /*  Q3
+    list.forEach( num -> System.out.println(num)); 
+    */
+    // Q4
+    /* 
+    for (int list2 : list ) {
+      System.out.println(list2 * 2);
+    } */
+    /* 
+    int num =0;
+    for (int list2 : list) {
+      list.set(num, list2 * 2);
+      num++;
+    }
+    list.forEach( element -> System.out.println(element));
+    */
+    /* 
+    list.remove(3);
+    System.out.println(list.get(3));
+    */
+    List<String> List = new ArrayList<String>();
+    List.add("ニンジン");
+    List.add("タマネギ");
+    List.add("ジャガイモ");
+    List.add("ニク");
+        for (String str : List) {
+            int length = str.length();
+            System.out.println(length);
+        }
+
+  }
+}
+
+/*
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+// Setをインポートする
+
+
+
+// 返り値は配列でいうところの[apple, grapes]のようになっています
+Set<String> keys = map.keySet();
+// 以下のような繰り返しも可能
+for (String key : keys) {
+    System.out.println(key);
+    // 次のようにgetメソッドの引数としてkey指定を行い要素取得もできる
+    // map.get(key);
+}
+Map<String, String> map = new HashMap<String, String>();
+map.put("apple", "りんご");
+map.put("bananas", "バナナ");
+map.put("grapes", "ぶどう");
+// key, valueはput()メソッドの第一引数、第二引数が入る
+map.forEach((key, value) -> {
+    System.out.println(key + ": " + value);
+});
+/**
+ * 出力結果)
+ * apple: りんご
+ * bananas: バナナ
+ * grapes: ぶどう
+ */
+class API7 {
+  public static void main(String[] args) {
+    Map<Integer, String> map = new HashMap<Integer, String>();
+    // Q1
+    map.put(1, "apple");
+    map.put(10, "lemon");
+    map.put(100, "pineapple");
+    map.put(1000, "grape");
+    map.put(10000, "banana");
+    map.put(543210, "strawberry");
+    // Q2
+    /* 
+    for (String value : map.values()) {
+    System.out.println(value);
+    } */
+    // Q3
+    map.replace(1, "orange");
+    map.remove(543210);
+    //Q5
+    Set<Integer> keys = map.keySet();
+    int num = keys.size(); 
+    System.out.println("要素数は" + num + "です。");
+  }
+}
+
+/*
+ *
+// HashSetとSetをimportする
+import java.util.HashSet;
+import java.util.Set;
+
+class Sample {
+    public static void main(String[] args) {
+      /**
+       * String型の要素を格納するHashSetのインスタンスを生成します。
+       * Set<型> 変数名 = new HashSet<型>();
+      Set<String> set = new HashSet<String>();
+    }
+}
+Set<Integer> set = new HashSet<Integer>();
+set.add(1); // [1]
+set.add(2); // [1, 2]
+set.add(3); // [1, 2, 3]
+// 配列に変換して返却します
+Integer[] array = set.toArray(new Integer[set.size()]); // {1, 2, 3}
+ */
+
+ class API8 {
+  public static void main(String[] args) {
+    Set<String> set = new HashSet<String>();
+    // Q1
+    set.add("うさぎ");
+    set.add("トラ");
+    set.add("うま");
+    // Q2
+    set.forEach( num -> System.out.println(num));
+  }
+}
+
+/*  0 - 20のランダムな整数
+int num = (int) (Math.random() * 20);
+if (num >= 1 && num <= 10) {
+    System.out.println("ok");
+} else {
+    // RuntimeExceptionというクラスの例外を発生させています
+    throw new RuntimeException("3で割り切れないので不正な数字です");
+} */
+class Error1 {
+  public static void main(String[] args) {
+  int num = (int) (Math.random() * 10);
+  if (num < 5) {
+    System.out.println("ok");
+  }
+  else {
+    throw new IllegalArgumentException("5以上の不正な値です");
+  }
+  }
+}
+
+class Error2 {
+  public static void main(String[] args) {
+    String name = null;
+    System.out.print(name);
+    throw new NullPointerException("nullです");
+  }
+}
+
+/*
+try {
+    // 処理
+} catch (例外クラス 変数名) {
+    // 例外クラスの例外が発生した時に実行される処理
+} catch (例外クラス2 変数名) {
+    // 他の例外も発生しうる場合はcatchブロックが増える
+} finally {
+    // 最終的に実行したい処理があれば記述、省略可
+
+// コンパイルエラー
+// RuntimeExceptionを基にしたクラスとRuntimeExceptionを同時に捕捉できません
+} catch (NumberFormatException | RuntimeException e) {
+    // 例外処理
+}
+}
+ */
+
+class Error3 {
+  public static void main(String[] args) {
+    int[] numbers = {1, 2, 3};
+    try {
+      for (int i = 0; i < 4; i++) {
+          System.out.println(numbers[i]);
+      }
+    } catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("要素数を超えました");
+    }
+  }
+}
+class Error4 {
+  public static void main(String[] args) {
+    try {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    String inputStr = br.readLine();
+    int inputNum = Integer.parseInt(inputStr);
+    System.out.println(inputNum + "が入力されました");
+    } catch (IOException e) {
+      System.out.println("不正な値が入力されました");
+    } catch (NumberFormatException e) {
+      System.out.println("数字を入力してください");
+    }
+  }
+}
+/*
+ * public static void main(String[] args) {
+    try {
+        method1();
+    } catch (NumberFormatException e) {
+        e.printStackTrace();
+    }
+}
+
+// NumberFormatExceptionが発生した場合、呼び出し元に例外処理を任せます
+public static int method1() throws NumberFormatException, IOException, SQLException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    int ret = 0;
+    try {
+        String line = br.readLine();
+        // lineの値によってはint型に変換できず例外発生
+        ret = Integer.parseInt(line);
+    } catch(IOException e) {
+        e.printStackTrace();
+    }
+    return ret;
+
+}
+
+class Server {
+    public static String takeOrder(String menu) throws ServiceException {
+        try {
+            Food orderedFood = Chef.cook(menu);
+            return orderedFood;
+        } catch(KitchenException e) {
+            // コンストラクタの第２引数に「１つ目に発生した例外」のオブジェクト(e)を渡す。
+            throw new ServiceException("本日はラーメンの注文をお受けできません", e);
+        }
+    }
+}
+例外チェーン
+
+ */
+
+class Error5 {
+  public static void main(String[] args) {
+    try { 
+        method5();
+        } catch (IOException e) {
+          e.printStackTrace();
+        } catch (NumberFormatException e) {
+          System.out.println("例外が発生しました");
+        }
+     }
+    public static int method5() throws IOException, NumberFormatException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        String inputStr = br.readLine();
+        int inputNum = Integer.parseInt(inputStr);
+        return inputNum;
+    }
+}
+
+
+/* 
+public class Teacher {
+  public static void main(String[] args) {
+    String issue = "動画作成課題";
+    Student student = new Student();
+    try {
+    Homework homework = student.doHomework(issue);
+
+    if (checkHomework(homework)) {
+      System.out.println(homework.getContent() + "を採点します。");
+     }
+   } catch (SpecException e) {
+    e.getMessage();
+    System.out.println("PCを見せてください。");
+   }
+  }
+
+  private static boolean checkHomework(Homework homework) {
+    if (homework == null || homework.getContent().isEmpty()) {
+      return false;
+     }
+    return true;
+   }
+}
+
+public class Student {
+  public Homework doHomework(String title) {
+    NotePc pc = new NotePc();
+    Homework homework = pc.createHomework(title);
+    return homework;
+   }
+}
+
+public class NotePc {
+  public Homework createHomework(String title) {
+      if (title.equals("動画作成課題")) {
+        throw new SpecException("容量が足りません。");
+       }
+    return new Homework(title);
+   }
+}
+
+public class Homework {
+  private String content = "";
+
+  public Homework() {}
+
+  public Homework(String content) {
+    this.content = content;
+   }
+
+  public String getContent() {
+    return this.content;
+   }
+}
+
+public class SpecException extends Exception {
+  public SpecException(String message) {
+    super(message);
+   }
+}
+
+
+public class Teacher {
+    public static void main(String[] args) {
+        String issue = "動画作成課題";
+        Student student = new Student();
+        Homework homework = null;
+​
+        try {
+            homework = student.doHomework(issue);
+            if (checkHomework(homework)) {
+                System.out.println(homework.getContent() + "を採点します。");
+            }
+        } catch (SpecException e) {
+            System.out.println(e.getMessage());
+            System.out.println("PCを見せてください。");
+        }
+    }
+​
+    private static boolean checkHomework(Homework homework) {
+        if (homework == null || homework.getContent().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+}
+
+public class Student {
+    public Homework doHomework(String title) throws SpecException {
+        NotePc pc = new NotePc();
+        Homework homework = pc.createHomework(title);
+        return homework;
+    }
+}
+
+public class NotePc {
+    public Homework createHomework(String title) throws SpecException {
+    try {
+        if (title.equals("動画作成課題")) {
+            throw new SpecException("容量が足りません。"e);
+        }
+        } catch (StudentException e) {
+
+        }
+        return new Homework(title);
+    }
+}
+*/
+
+
+class GameUtils {
+  
+}
+// 動作確認
+class ExeTest {
+  public static void main(String[] args) {
+    
+   }
+}
