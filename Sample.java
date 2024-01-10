@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.regex.Pattern;
 
 class Sample3
 {
@@ -1393,11 +1394,57 @@ public class NotePc {
 
 
 class GameUtils {
-  
+  private static final String REGEX_ALPHABET = "^[A-Za-z]{4,12}$";
+  private  GameUtils() {
+  }
+  public static int getInputInt() {
+    int num = 0;
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    try {
+    String str = br.readLine();
+    num = Integer.parseInt(str);
+    return num;
+    } catch (IOException e) {
+      System.out.println("Please enter an integer!");
+      return getInputInt();
+    }
+  }
+  public static String getInputString() {
+    String inputStr = null;
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    try {
+      inputStr = br.readLine();
+    } catch (IOException e) {
+      System.out.println("Input error...Please retype!");
+      return getInputString();
+    }
+    return inputStr;
+  }
+  public static int getRandomInt(int maxValue) {
+    Random random = new Random();
+    return random.nextInt(maxValue);
+  }
+  public static boolean checkPattern(String targetStr) {
+    if (targetStr == null || targetStr.isEmpty()) {
+      return false;
+    }
+    else {
+        String regex_alphabet = "^[A-Za-z]+{4,12}$";
+        return Pattern.matches(regex_alphabet, targetStr);
+    }
+  }
 }
+
 // 動作確認
 class ExeTest {
   public static void main(String[] args) {
-    
+    String inputString = GameUtils.getInputString();
+    int inputInt = GameUtils.getInputInt();
+    int randomInt = GameUtils.getRandomInt(5);
+    boolean result = GameUtils.checkPattern("test");
+    System.out.println(inputString);
+    System.out.println(inputInt);
+    System.out.println(randomInt);
+    System.out.println(result);
    }
 }
