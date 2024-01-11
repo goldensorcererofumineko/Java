@@ -1434,7 +1434,11 @@ class GameUtils {
     }
   }
 }
-
+class CardPickGame {
+  private int
+  private int
+  private int
+}
 // 動作確認
 class ExeTest {
   public static void main(String[] args) {
