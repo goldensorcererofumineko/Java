@@ -1435,9 +1435,15 @@ class GameUtils {
   }
 }
 class CardPickGame {
-  private int
-  private int
-  private int
+  private int maxBetCoin = 100;
+  private int deckSetCount =2;
+  private int possessionCoin;
+  public CardPickGame(int possessionCoin) {
+    possessionCoin = this.possessionCoin;
+  };
+  public void execute() {
+
+  }
 }
 // 動作確認
 class ExeTest {
@@ -1450,5 +1456,6 @@ class ExeTest {
     System.out.println(inputInt);
     System.out.println(randomInt);
     System.out.println(result);
+    CardPickGame cardPickGame = new CardPickGame(10);
    }
 }
