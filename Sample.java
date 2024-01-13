@@ -1444,6 +1444,9 @@ class CardPickGame {
   public void execute() {
 
   }
+  private int getCard() {
+
+  }
 }
 // 動作確認
 class ExeTest {
