@@ -1443,6 +1443,7 @@ class CardPickGame {
   };
   public void execute() {
     getCard();
+    boolean result = judgeCard(getCard());
   }
   private int getCard() {
     List<List<Integer>> setDeck = new ArrayList<List<Integer>>();
@@ -1468,6 +1469,9 @@ class CardPickGame {
     int userNumSum = cardA + cardB;
     System.out.println("Cards drawn are " + cardA + " and " + cardB + ", total is " + userNumSum + ".");
     return userNumSum;
+  }
+  private boolean judgeCard(int getCardResult) {
+    return (getCardResult >= 11) ? true : false;
   }
 }
 // 動作確認
