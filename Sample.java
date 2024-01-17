@@ -1441,9 +1441,15 @@ class CardPickGame {
   public CardPickGame(int possessionCoin) {
     this.possessionCoin = possessionCoin;
   };
-  public void execute() {
-    getCard();
-    boolean result = judgeCard(getCard());
+  public int execute() {
+    if (possessionCoin == 0) {
+      return possessionCoin;
+    }
+    else {
+      System.out.println("You have" + possessionCoin + "Coin");
+      return possessionCoin;
+    }
+//You have ××××Coin, Start the game? y / n
   }
   private int getCard() {
     List<List<Integer>> setDeck = new ArrayList<List<Integer>>();
