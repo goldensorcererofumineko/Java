@@ -1446,11 +1446,21 @@ class CardPickGame {
       return possessionCoin;
     }
     else {
-      System.out.println("You have" + possessionCoin + "Coin");
-      return possessionCoin;
-    }
-//You have ××××Coin, Start the game? y / n
-  }
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("You have " + possessionCoin + " Coin, Start the game? y / n");
+
+            String input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("y")) {
+                System.out.println("please bet Coin 1 ~" + maxBetCoin );
+            } else if (input.equalsIgnoreCase("n")) {
+              return possessionCoin;
+            }
+            else {
+                System.out.println("Please enter y or n.");
+            }
+          }
+        }
   private int getCard() {
     List<List<Integer>> setDeck = new ArrayList<List<Integer>>();
     List<Integer> onePair = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9 ,10));
