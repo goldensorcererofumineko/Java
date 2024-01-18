@@ -1435,32 +1435,44 @@ class GameUtils {
   }
 }
 class CardPickGame {
-  private int maxBetCoin = 100;
-  private int deckSetCount =2;
-  private int possessionCoin;
-  public CardPickGame(int possessionCoin) {
-    this.possessionCoin = possessionCoin;
-  };
-  public int execute() {
-    if (possessionCoin == 0) {
-      return possessionCoin;
+    private int maxBetCoin = 100;
+    private int deckSetCount = 2;
+    private int possessionCoin;
+
+    public CardPickGame(int possessionCoin) {
+        this.possessionCoin = possessionCoin;
     }
-    else {
-            Scanner scanner = new Scanner(System.in);
+
+    public int execute() throws IOException {
+        if (possessionCoin == 0) {
+            return possessionCoin;
+        } else {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("You have " + possessionCoin + " Coin, Start the game? y / n");
 
-            String input = scanner.nextLine();
+            String line = br.readLine();
 
-            if (input.equalsIgnoreCase("y")) {
-                System.out.println("please bet Coin 1 ~" + maxBetCoin );
-            } else if (input.equalsIgnoreCase("n")) {
-              return possessionCoin;
-            }
-            else {
+            if (line.equals("y")) {
+                System.out.println("Please bet Coin 1 ~ " + maxBetCoin);
+                String coin = br.readLine();
+                int num = Integer.parseInt(coin);
+                if (num >0 && num <= maxBetCoin) {
+                  possessionCoin -= num;
+                  int cardResult = getCard();
+                  judgeCard(cardResult);
+                }
+                else {
+                  System.out.println("Please bet Coin 1 ~ " + maxBetCoin);
+                }
+            } else if (line.equals("n")) {
+                return possessionCoin;
+            } else {
                 System.out.println("Please enter y or n.");
             }
-          }
         }
+        return 0;
+    }
+
   private int getCard() {
     List<List<Integer>> setDeck = new ArrayList<List<Integer>>();
     List<Integer> onePair = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9 ,10));
