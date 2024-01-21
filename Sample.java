@@ -1443,34 +1443,52 @@ class CardPickGame {
         this.possessionCoin = possessionCoin;
     }
 
-    public int execute() throws IOException {
-        if (possessionCoin == 0) {
-            return possessionCoin;
-        } else {
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("You have " + possessionCoin + " Coin, Start the game? y / n");
+    public int execute() {
+      while (true) {
+        if (this.possessionCoin == 0) {
+            return this.possessionCoin;
+        }
+        while (true) {
+            System.out.println("You have " + this.possessionCoin + " Coin, Start the game? y / n");
 
-            String line = br.readLine();
+            String line = GameUtils.getInputString();
 
-            if (line.equals("y")) {
-                System.out.println("Please bet Coin 1 ~ " + maxBetCoin);
-                String coin = br.readLine();
-                int num = Integer.parseInt(coin);
-                if (num >0 && num <= maxBetCoin) {
-                  possessionCoin -= num;
-                  int cardResult = getCard();
-                  judgeCard(cardResult);
+
+                if (line.equals("y")) {
+                  break;
+                } else if (line.equals("n")) {
+                  return this.possessionCoin;
+                } else {
+                  System.out.println("Please enter y or n.");
                 }
-                else {
-                  System.out.println("Please bet Coin 1 ~ " + maxBetCoin);
-                }
-            } else if (line.equals("n")) {
-                return possessionCoin;
-            } else {
-                System.out.println("Please enter y or n.");
+              }
+            int ableBetCoin = Math.min(this.maxBetCoin, this.possessionCoin);
+            System.out.println("Please bet Coin 1 ~ " + ableBetCoin);
+
+            int userBetCoin = 0;
+            while (true) {
+            userBetCoin = GameUtils.getInputInt();
+            if (userBetCoin > 0 && userBetCoin <= ableBetCoin) {
+                break;
+              }
+            }
+            this.possessionCoin -= userBetCoin;
+
+            int cardResult = this.getCard();
+            boolean isWin = this.judgeCard(cardResult);
+            int getCoin = 0;
+            if (isWin) {
+            getCoin = userBetCoin * 2;
+            System.out.println("You Win! Get " + getCoin + " Coin!");
+            this.possessionCoin += getCoin;
+            } 
+            if (getCoin == 0) {
+              System.out.println("You lose");
+            }
+            if (getCoin >= 1) {
+              System.out.println("You got " + getCoin + "Coin !!");
             }
         }
-        return 0;
     }
 
   private int getCard() {
