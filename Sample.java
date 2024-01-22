@@ -1520,6 +1520,26 @@ class CardPickGame {
     return (getCardResult >= 11) ? true : false;
   }
 }
+class Playing {
+  public static void main(String[] args) {
+    String username = "";
+    int possessionCoin = 1000;
+    System.out.println("Welcome !");
+    System.out.println("Enter your username");
+    String getName = GameUtils.getInputString();
+    username = getName;
+    boolean checkName = GameUtils.checkPattern(username);
+    while (true) {
+      if (checkName) {
+       break; 
+      }
+      else {
+        System.out.println("Does not match condition of the username");
+      }
+    }
+
+  }
+}
 // 動作確認
 class ExeTest {
   public static void main(String[] args) {
