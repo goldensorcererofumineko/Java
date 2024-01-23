@@ -1526,18 +1526,18 @@ class Playing {
     int possessionCoin = 1000;
     System.out.println("Welcome !");
     System.out.println("Enter your username");
-    String getName = GameUtils.getInputString();
-    username = getName;
-    boolean checkName = GameUtils.checkPattern(username);
+
     while (true) {
-      if (checkName) {
+      username = GameUtils.getInputString();
+      if (GameUtils.checkPattern(username)) {
        break; 
       }
-      else {
         System.out.println("Does not match condition of the username");
-      }
     }
-
+    System.out.println("Hello" + username);
+    CardPickGame userCoin = new CardPickGame(possessionCoin);
+    possessionCoin = userCoin.execute();
+    System.out.println(username+ "Possession : " + possessionCoin + "Coin");
   }
 }
 // 動作確認
