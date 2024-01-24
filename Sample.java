@@ -1540,6 +1540,16 @@ class Playing {
     System.out.println(username+ "Possession : " + possessionCoin + "Coin");
   }
 }
+class HighAndLowGame {
+  private int earnedCoinCount;
+  private int maxWinCoin = 1000;
+  private int deckSetCount;
+  public void HighAndLowGame(int earnedCoinCount,int deckSetCount) {
+    this.earnedCoinCount = earnedCoinCount;
+    this.deckSetCount = deckSetCount;
+  }
+  public void execute() {}
+}
 // 動作確認
 class ExeTest {
   public static void main(String[] args) {
