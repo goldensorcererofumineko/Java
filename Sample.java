@@ -1549,6 +1549,12 @@ class HighAndLowGame {
     this.deckSetCount = deckSetCount;
   }
   public void execute() {}
+  private List<Integer> getCard(List<Integer> cardList) {
+    for (int i = 0; i < deckSetCount; i++) {
+      List<List<Integer>> setDeck;
+      GameUtils.getRandomInt(deckSetCount);
+    }
+  }
 }
 // 動作確認
 class ExeTest {
