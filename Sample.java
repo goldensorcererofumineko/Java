@@ -1567,7 +1567,15 @@ class HighAndLowGame {
           count++;
         }
       }
+      if (count < this.deckSetCount) {
+        break;
+      }
     }
+    cardList.add(cardA);
+    int lastIdx = cardList.size() - 1;
+    int showValue = cardList.get(lastIdx);
+    System.out.println("pick card --" + showValue + "--");
+    return cardList;
   }
 }
 // 動作確認
