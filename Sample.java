@@ -1550,9 +1550,23 @@ class HighAndLowGame {
   }
   public void execute() {}
   private List<Integer> getCard(List<Integer> cardList) {
+    List<List<Integer>> setDeck = new ArrayList<List<Integer>>();
+    List<Integer> onePair = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9 ,10));
     for (int i = 0; i < deckSetCount; i++) {
-      List<List<Integer>> setDeck;
-      GameUtils.getRandomInt(deckSetCount);
+      setDeck.add(i, onePair);
+    }
+    int cardA;
+    while (true) {
+      int randNumA1 = GameUtils.getRandomInt(2);
+      int randNumA2 = GameUtils.getRandomInt(10);
+      cardA = setDeck.get(randNumA1).get(randNumA2);
+
+      int count = 0;
+      for (int value : cardList) {
+        if (cardA == value) {
+          count++;
+        }
+      }
     }
   }
 }
