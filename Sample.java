@@ -1577,6 +1577,38 @@ class HighAndLowGame {
     System.out.println("pick card --" + showValue + "--");
     return cardList;
   }
+  private boolean judgeCard(List<Integer> cardList,boolean pickChoice) {
+    /*cardListの最後2つの数字を取り出す。
+
+最後の数字を[A], 1つ前を[B]とする
+
+結果を判定する
+
+[A] = [B]の場合
+
+負けとなり、falseを返却する
+
+[A] > [B]の場合
+
+pickChoiceがtrueの場合
+
+勝ちとなり、trueを返却する
+
+pickChoiceがfalseの場合
+
+負けとなり、falseを返却する
+
+[A] < [B]の場合
+
+pickChoiceがtrueの場合
+
+負けとなり、falseを返却する
+
+pickChoiceがfalseの場合
+
+勝ちとなり、trueを返却する
+*/
+  }
 }
 // 動作確認
 class ExeTest {
