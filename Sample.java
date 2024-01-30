@@ -1548,7 +1548,6 @@ class HighAndLowGame {
     this.earnedCoinCount = earnedCoinCount;
     this.deckSetCount = deckSetCount;
   }
-  public void execute() {}
   private List<Integer> getCard(List<Integer> cardList) {
     List<List<Integer>> setDeck = new ArrayList<List<Integer>>();
     List<Integer> onePair = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9 ,10));
@@ -1578,36 +1577,25 @@ class HighAndLowGame {
     return cardList;
   }
   private boolean judgeCard(List<Integer> cardList,boolean pickChoice) {
-    /*cardListの最後2つの数字を取り出す。
+    int num = cardList.size() - 1;
+    int cardA = cardList.get(num);
+    int cardB = cardList.get(num - 1);
 
-最後の数字を[A], 1つ前を[B]とする
+    if (cardA == cardB) {
+        return false;
+    }
 
-結果を判定する
-
-[A] = [B]の場合
-
-負けとなり、falseを返却する
-
-[A] > [B]の場合
-
-pickChoiceがtrueの場合
-
-勝ちとなり、trueを返却する
-
-pickChoiceがfalseの場合
-
-負けとなり、falseを返却する
-
-[A] < [B]の場合
-
-pickChoiceがtrueの場合
-
-負けとなり、falseを返却する
-
-pickChoiceがfalseの場合
-
-勝ちとなり、trueを返却する
-*/
+    boolean flg = (cardA > cardB) ? true : false;
+    if (pickChoice == flg) {
+      return true;
+     }
+    return false;
+   }
+   public void execute() {
+    getCard(null);
+    if (earnedCoinCount > maxWinCoin) {
+      
+    }
   }
 }
 // 動作確認
