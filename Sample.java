@@ -1592,9 +1592,23 @@ class HighAndLowGame {
     return false;
    }
    public void execute() {
-    getCard(null);
+    List<Integer> cardList = new ArrayList<>();
+    getCard(cardList);
     if (earnedCoinCount > maxWinCoin) {
-      
+      return;
+    } else {
+      System.out.println("Your winCoin is" + earnedCoinCount);
+      System.out.println("Playing High And Low ? y / n");
+      String choice = GameUtils.getInputString();
+
+        if (choice.equals("y")) {
+            System.out.println("High or Low ? h / l");
+            String highLow = GameUtils.getInputString();
+        } else if (choice.equals("n")) {
+        return;
+        } else {
+        System.out.println("Input error...Please retype!");
+        }
     }
   }
 }
