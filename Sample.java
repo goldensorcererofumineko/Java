@@ -1591,24 +1591,39 @@ class HighAndLowGame {
      }
     return false;
    }
-   public void execute() {
-    List<Integer> cardList = new ArrayList<>();
-    getCard(cardList);
-    if (earnedCoinCount > maxWinCoin) {
-      return;
-    } else {
-      System.out.println("Your winCoin is" + earnedCoinCount);
+   public int execute() {
+    List<Integer> cardList = new ArrayList<Integer>();
+    cardList = this.getCard(cardList);
+    while (true) {
+      if (this.earnedCoinCount > this.maxWinCoin) {
+        return this.earnedCoinCount;
+      } 
+      System.out.println("Your winCoin is" + this.earnedCoinCount);
+      while (true) {
       System.out.println("Playing High And Low ? y / n");
       String choice = GameUtils.getInputString();
 
-        if (choice.equals("y")) {
-            System.out.println("High or Low ? h / l");
-            String highLow = GameUtils.getInputString();
-        } else if (choice.equals("n")) {
-        return;
+        if (choice.equals("n")) {
+          return this.earnedCoinCount;
+        } else if (choice.equals("y")) {
+          break;
         } else {
         System.out.println("Input error...Please retype!");
         }
+      }
+      boolean pickChoice = true;
+      while (true) {
+        System.out.println("High or Low ? h / l");
+        String userChoice = GameUtils.getInputString();
+        if (userChoice.equals("h")) {
+          break;
+        } else if (userChoice.equals("l")) {
+          pickChoice = false;
+          break;
+        } else {
+        System.out.println("Input error...Please retype!");
+        }
+      }
     }
   }
 }
