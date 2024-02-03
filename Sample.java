@@ -1624,6 +1624,17 @@ class HighAndLowGame {
         System.out.println("Input error...Please retype!");
         }
       }
+      cardList = this.getCard(cardList);
+      boolean isWinner = this.judgeCard(cardList, pickChoice);
+      if (isWinner) {
+        this.earnedCoinCount *= 2;
+      } else {
+        this.earnedCoinCount = 0;
+      }
+      if (this.earnedCoinCount == 0) {
+        return this.earnedCoinCount;
+      }
+      System.out.println("You got " + this.earnedCoinCount + "Coin !!");
     }
   }
 }
