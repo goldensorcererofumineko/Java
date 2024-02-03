@@ -1524,6 +1524,9 @@ class Playing {
   public static void main(String[] args) {
     String username = "";
     int possessionCoin = 1000;
+    int earnedCoinCount;
+    int maxWinCoin = 1000;
+    int deckSetCount;
     System.out.println("Welcome !");
     System.out.println("Enter your username");
 
@@ -1535,6 +1538,9 @@ class Playing {
         System.out.println("Does not match condition of the username");
     }
     System.out.println("Hello" + username);
+    HighAndLowGame Game = new HighAndLowGame(earnedCoinCount,deckSetCount);
+    int resultCoin = execute();
+    return earnedCoinCount;
     CardPickGame userCoin = new CardPickGame(possessionCoin);
     possessionCoin = userCoin.execute();
     System.out.println(username+ "Possession : " + possessionCoin + "Coin");
