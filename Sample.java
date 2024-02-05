@@ -1524,9 +1524,7 @@ class Playing {
   public static void main(String[] args) {
     String username = "";
     int possessionCoin = 1000;
-    int earnedCoinCount;
     int maxWinCoin = 1000;
-    int deckSetCount;
     System.out.println("Welcome !");
     System.out.println("Enter your username");
 
@@ -1538,12 +1536,12 @@ class Playing {
         System.out.println("Does not match condition of the username");
     }
     System.out.println("Hello" + username);
-    HighAndLowGame Game = new HighAndLowGame(earnedCoinCount,deckSetCount);
-    int resultCoin = execute();
-    return earnedCoinCount;
+    HighAndLowGame Game = new HighAndLowGame();
+    int resultCoin = Game.execute();
+    possessionCoin += resultCoin;
     CardPickGame userCoin = new CardPickGame(possessionCoin);
     possessionCoin = userCoin.execute();
-    System.out.println(username+ "Possession : " + possessionCoin + "Coin");
+    System.out.println(username+ "Possession : " + resultCoin + "Coin");
   }
 }
 class HighAndLowGame {
@@ -1657,4 +1655,18 @@ class ExeTest {
     System.out.println(result);
     CardPickGame cardPickGame = new CardPickGame(10);
    }
+}
+
+class SampleQ1 {
+  public static void main(String[] args) {
+      int num1 = 8;
+      int num2 = 13;
+      boolean isMultiple = false;
+    if (isMultiple) {
+      System.out.println(num2 + "は" + num1 + "の倍数です");
+    }
+    else {
+      System.out.println(num2 + "は" + num1 + "の倍数ではありません");
+    }
+  }
 }
