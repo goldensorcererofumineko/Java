@@ -1661,12 +1661,21 @@ class SampleQ1 {
   public static void main(String[] args) {
       int num1 = 8;
       int num2 = 13;
-      boolean isMultiple = false;
-    if (isMultiple) {
+      boolean isMultiple = num2 % num1 == 0;
+    /*if (isMultiple) {
       System.out.println(num2 + "は" + num1 + "の倍数です");
-    }
     else {
       System.out.println(num2 + "は" + num1 + "の倍数ではありません");
+    }*/
+    //if ((num1 + num2) % 7 == 0 && num1>10 | num1 % 2 == 0 && num2 >= 100 | !num2 % 6 == 0) {
+      
+    //}
+    if ((num1 + num2) % 7 == 0) {
+      if (num1>10 || num1 % 2 == 0) {
+        if (num2 <= 100 && !(num2 % 6 == 0)) {
+          System.out.println("すべての条件を満たしました");
+        }
+      }
     }
   }
 }
