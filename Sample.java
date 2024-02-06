@@ -1679,3 +1679,21 @@ class SampleQ1 {
     }
   }
 }
+class SampleQ3 {
+  public static void main(String[] args) {
+    int checkTarget = 6;
+    switch (checkTarget) {
+      case 1:
+        System.out.println("条件にヒットしました");
+        break;
+    
+      case 6:
+        System.out.println("条件にヒットしました");
+        break;
+
+      default:
+        System.out.println("条件に合いませんでした");
+        break;
+    }
+  }
+}
