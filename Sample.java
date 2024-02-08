@@ -1697,3 +1697,34 @@ class SampleQ3 {
     }
   }
 }
+
+class SampleQ456 {
+  public static void main(String[] args) {
+    int age = 12;
+    String gender = "male";
+    String status = "";
+
+    if (0 <= age && age <= 5) {
+      if (gender.equals("female")) {
+        status = "A";
+      } else if (gender.equals("male")) {
+        status = "A";
+      }
+    } else if (6 <= age && age <= 10) {
+      if (gender.equals("male")) {
+        status = "A";
+      }
+    } else if (age > 10) {
+      if (!gender.equals("male")) {
+        status = "B";
+      } else {
+        status = "C";
+      }
+    } else {
+      System.out.println("判定対象外");
+      return;
+    }
+
+    System.out.println(status);
+  }
+}
