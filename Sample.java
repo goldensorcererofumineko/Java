@@ -1728,3 +1728,19 @@ class SampleQ456 {
     System.out.println(status);
   }
 }
+
+class SampleQ7 {
+  public static void main(String[] args) {
+    for (int num = 1; num <= 10; num++){
+      if (num % 2 ==0) {
+        System.out.println("処理をスキップします。");
+        continue;
+      }
+      System.out.println(num + "回目の出力です。");
+      if (num == 7) {
+        System.out.println("処理を終了します。");
+        break;
+      }
+    }
+  }
+}
