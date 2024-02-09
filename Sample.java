@@ -1744,3 +1744,40 @@ class SampleQ7 {
     }
   }
 }
+class SampleQ8 {
+  public static void main(String[] args) {
+    for (int i = 1; i <= 20; i++) {
+      if (i % 3 == 0 && i % 4 ==0) {
+        System.out.println(i + " Oh!Yes!!");
+      }
+      else if (i % 3 == 0) {
+        System.out.println(i + " Oh!");
+      }
+      else if (i % 4 == 0) {
+        System.out.println(i + " Yes!!");
+      }
+      else {
+        System.out.println(i);
+      }
+    }
+  }
+}
+
+class SampleQ10 {
+  public static void main(String[] args) {
+    String[] products = {
+    "水",
+    "コーラ",
+    "オレンジジュース",
+    "カフェオレ"
+};
+
+String productsStr = "";
+
+/** ここから追記可 */
+        for (int i = 0; i < products.length; i++) {
+            productsStr += (i + 1) + ":" + products[i] + " ";
+        }
+        System.out.println(productsStr);
+  }
+}
