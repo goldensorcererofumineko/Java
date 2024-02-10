@@ -1773,11 +1773,28 @@ class SampleQ10 {
 };
 
 String productsStr = "";
-
+String[] teamList = {
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+};
 /** ここから追記可 */
-        for (int i = 0; i < products.length; i++) {
-            productsStr += (i + 1) + ":" + products[i] + " ";
+/*     for (int i = 0; i < products.length; i++) {
+        productsStr += (i + 1) + ":" + products[i] + " ";
+    }
+        System.out.println(productsStr);*/
+        for (int i = 0; i < teamList.length; i++) {
+          for (int j = 0; j < teamList.length; j++) {
+            if (i == j) {
+              System.out.print("|NoBattle");
+              continue;
+            }
+            System.out.print("| " + teamList[i] + "vs" + teamList[j] + " ");
+          }
+          System.out.print("|");
+        System.out.println();
         }
-        System.out.println(productsStr);
   }
 }
