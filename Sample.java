@@ -1780,12 +1780,41 @@ String[] teamList = {
     "D",
     "E"
 };
-/** ここから追記可 */
+int[] numberArray = {10, 3, 22, 9, 2, 18};
+int[] arrayA = {1, 2, 3, 4, 5, 6, 7};
+int[] arrayB = {11, 21, 31, 41, 51, 61, 71};
+
+System.out.println("入れ替え前");
+System.out.print("配列Aの要素は ");
+for (int element : arrayA) {
+    System.out.print(element + " ");
+}
+System.out.print("\n");
+System.out.print("配列Bの要素は ");
+for (int element : arrayB) {
+    System.out.print(element + " ");
+}
+
+for (int i = 0; i < arrayA.length; i++) {
+    /** ここから追記可 */
+}
+
+System.out.println("入れ替え後");
+System.out.print("配列Aの要素は ");
+for (int element : arrayA) {
+    System.out.print(element + " ");
+}
+System.out.print("\n");
+System.out.print("配列Bの要素は ");
+for (int element : arrayB) {
+    System.out.print(element + " ");
+}
+
 /*     for (int i = 0; i < products.length; i++) {
         productsStr += (i + 1) + ":" + products[i] + " ";
     }
         System.out.println(productsStr);*/
-        for (int i = 0; i < teamList.length; i++) {
+        /*for (int i = 0; i < teamList.length; i++) {
           for (int j = 0; j < teamList.length; j++) {
             if (i == j) {
               System.out.print("|NoBattle");
@@ -1795,6 +1824,18 @@ String[] teamList = {
           }
           System.out.print("|");
         System.out.println();
-        }
+        }*/
+   int maxNumber = numberArray[0];
+   int miniNumber = numberArray[5];
+   for (int i = 1; i < numberArray.length; i++) {
+    if (numberArray[i] > maxNumber) {
+      maxNumber = numberArray[i];
+    }
+    if (numberArray[i] < miniNumber) {
+      miniNumber = numberArray[i];
+    }
+   }
+   System.out.println("最大値は" + maxNumber);
+   System.out.println("最小値は" + miniNumber);
   }
 }
