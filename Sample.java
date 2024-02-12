@@ -1797,6 +1797,9 @@ for (int element : arrayB) {
 
 for (int i = 0; i < arrayA.length; i++) {
     /** ここから追記可 */
+    int temp = arrayA[i];
+    arrayA[i] = arrayB[i];
+    arrayB[i] = temp;
 }
 
 System.out.println("入れ替え後");
