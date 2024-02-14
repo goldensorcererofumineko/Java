@@ -1882,5 +1882,36 @@ class SampleQQ {
         }
     }
 };
+for (int i = 0; i < fonts.length; i++) {
+  for (int j = 0; j < fonts[i].length; j++) {
+    for (int k = 0; k < fonts[i][j].length; k++) {
+      for (int l = 0; l < fonts[i][j][k].length; l++) {
+        System.out.println(fonts[i][j][k][l]);
+      }
+    }
+  }
+}
+  }
+}
+
+class SampleQQQ {
+  public static void main(String[] args) {
+    List<String> wagashi = new ArrayList<String>();
+    wagashi.add("みたらし団子");
+    wagashi.add("ういろう");
+    wagashi.add("せんべい");
+    wagashi.add("羊羹");
+
+    List<String> yogashi = new ArrayList<String>();
+    yogashi.add("ショートケーキ");
+    yogashi.add("プリン");
+    yogashi.add("シュークリーム");
+    yogashi.add("クッキー");
+    yogashi.add("マシュマロ");
+    yogashi.add("チョコレート");
+
+    Map<String, List<String>> sweets = new HashMap<String, List<String>>();
+    sweets.put("和菓子", wagashi);
+    sweets.put("洋菓子", yogashi);
   }
 }
