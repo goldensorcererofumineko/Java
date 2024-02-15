@@ -1913,5 +1913,9 @@ class SampleQQQ {
     Map<String, List<String>> sweets = new HashMap<String, List<String>>();
     sweets.put("和菓子", wagashi);
     sweets.put("洋菓子", yogashi);
+    System.out.println(sweets.get("洋菓子").get(3));
+        sweets.forEach((category, sweetsList) -> {
+            System.out.println(category + ":" + sweetsList.size());
+        });
   }
 }
