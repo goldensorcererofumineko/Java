@@ -1919,3 +1919,14 @@ class SampleQQQ {
         });
   }
 }
+
+class SampleQQQQ {
+  public static void main(String[] args) {
+    ArrayList<String> animaList = new ArrayList<String>();
+    animaList.add("dog");
+    animaList.add("cat");
+    animaList.add("mouse");
+    String firstAnimal = animaList.get(0);
+    System.out.println(firstAnimal);
+  }
+}
