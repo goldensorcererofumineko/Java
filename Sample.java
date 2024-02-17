@@ -1927,6 +1927,7 @@ class SampleQQQQ {
     animaList.add("cat");
     animaList.add("mouse");
     String firstAnimal = animaList.get(0);
+    animaList.set(2, "hamster");
     System.out.println(firstAnimal);
   }
 }
