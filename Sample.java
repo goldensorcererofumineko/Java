@@ -1929,5 +1929,8 @@ class SampleQQQQ {
     String firstAnimal = animaList.get(0);
     animaList.set(2, "hamster");
     System.out.println(firstAnimal);
+    for (int i = 0; i < animaList.size(); i++) {
+      System.out.println("No." + (i + 1) + ":" +animaList.get(i));
+    }
   }
 }
