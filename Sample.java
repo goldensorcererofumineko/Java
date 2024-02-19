@@ -1922,6 +1922,7 @@ class SampleQQQ {
 
 class SampleQQQQ {
   public static void main(String[] args) {
+
     ArrayList<String> animaList = new ArrayList<String>();
     animaList.add("dog");
     animaList.add("cat");
@@ -1932,5 +1933,17 @@ class SampleQQQQ {
     for (int i = 0; i < animaList.size(); i++) {
       System.out.println("No." + (i + 1) + ":" +animaList.get(i));
     }
+    Map<String, String> dogDetails = new HashMap<String, String>();
+    Map<String, String> catDetails = new HashMap<String, String>();
+    Map<String, String> hamsterDetails = new HashMap<String, String>();
+    dogDetails.put("name", "コタロー");
+    dogDetails.put("type", "ブルテリア");
+    dogDetails.replace("type", "ボルゾイ");
+    catDetails.put("name", "コジロー");
+    catDetails.put("type", "マンチカン");
+    hamsterDetails.put("name", "ハムタロー");
+    hamsterDetails.put("type", "キンクママ");
+    System.out.println(dogDetails.get("name") + "(" + dogDetails.get("type") + ")");
   }
 }
+
