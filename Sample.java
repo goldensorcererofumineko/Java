@@ -1936,14 +1936,19 @@ class SampleQQQQ {
     Map<String, String> dogDetails = new HashMap<String, String>();
     Map<String, String> catDetails = new HashMap<String, String>();
     Map<String, String> hamsterDetails = new HashMap<String, String>();
+    Map<String, Map<String, String>> animalDetails = new HashMap<String, Map<String, String>>();
     dogDetails.put("name", "コタロー");
     dogDetails.put("type", "ブルテリア");
     dogDetails.replace("type", "ボルゾイ");
     catDetails.put("name", "コジロー");
     catDetails.put("type", "マンチカン");
     hamsterDetails.put("name", "ハムタロー");
-    hamsterDetails.put("type", "キンクママ");
+    hamsterDetails.put("type", "キンクマ");
     System.out.println(dogDetails.get("name") + "(" + dogDetails.get("type") + ")");
+    animalDetails.put(animaList.get(0), dogDetails);
+    animalDetails.put(animaList.get(1), catDetails);
+    animalDetails.put(animaList.get(2), hamsterDetails);
+    System.out.print(animalDetails);
   }
 }
 
