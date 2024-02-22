@@ -1949,6 +1949,12 @@ class SampleQQQQ {
     animalDetails.put(animaList.get(1), catDetails);
     animalDetails.put(animaList.get(2), hamsterDetails);
     System.out.print(animalDetails);
+    animalDetails.forEach((key, animalDetail) -> {            
+      System.out.println("[" + key + "]");
+    System.out.println("名前：" + animalDetail.get("name"));
+    System.out.println("種類：" + animalDetail.get("type"));
+    System.out.println();
+      });
   }
 }
 
