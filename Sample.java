@@ -1958,3 +1958,99 @@ class SampleQQQQ {
   }
 }
 
+class ClassKadai {
+    public static void main(String[] args) {
+
+    }
+}
+class ClassRoom {
+    // <出席番号 Student型>
+    private HashMap<Integer, Student> students = new HashMap<Integer, Student>();
+
+    // <(主担任 | 副担任) Teacher型>
+    private HashMap<String, Teacher> teachers = new HashMap<String, Teacher>();
+
+    /**
+     * 以下のフィールド変数を書き換えてはならない
+     */
+    // 生徒の氏名
+    private String[] studentNames = {"赤城", "加賀", "工藤", "斎藤", "島野", "高橋", "橋本", "松村", "柳沢"};
+
+    // 学年
+    private int grade = 6;
+
+    // クラス番号
+    private int classNumber = 1;
+
+    /**
+     * 主担任をセットする
+     */
+    public void setMainTeacher() {
+        Teacher mainTeacher = new Teacher();
+        mainTeacher.setName("山田太郎");
+        mainTeacher.setSubject("国語");
+        this.teachers.put("主担任", mainTeacher);
+    }
+
+    /**
+     * 副担任をセットする
+     */
+    public void setSubTeacher() {
+
+    }
+
+    /**
+     * クラス名簿を出力する
+     */
+    public void showClassRoom() {
+
+    }
+}
+/**
+ * 生徒クラス
+ */
+class Student {
+    private String name;
+
+    /**
+     * 生徒の名前をセットする
+     * @param String name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void showName() {
+      System.out.println(this.name);
+    }
+}
+/**
+ * 先生クラス
+ */
+class Teacher {
+    // 先生の名前
+    private String name;
+    // 担当教科
+    private String subject;
+
+    /**
+     * 先生の名前をセットする
+     * @param String name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * 担当教科をセットする
+     */
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    /**
+     * 先生の名前・担当教科を出力する
+     */
+    public void showTeacherInformation() {
+        System.out.println("氏名: " + this.name + " 教科: " + this.subject);
+    }
+}
