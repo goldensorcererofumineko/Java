@@ -1996,7 +1996,18 @@ class ClassRoom {
      * 副担任をセットする
      */
     public void setSubTeacher() {
+      Teacher subTeacher = new Teacher();
+      subTeacher.setName("佐々木一郎");
+      subTeacher.setSubject("数学");
+      this.teachers.put("副担任", subTeacher);
+    }
 
+    public void setStudent() {
+      for (int i = 0; i < this.studentNames.length; i++) {
+        Student student = new Student();
+        student.setName(this.studentNames[i]);
+        students.put(i + 0, student);
+      }
     }
 
     /**
