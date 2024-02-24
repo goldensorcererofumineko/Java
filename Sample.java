@@ -2014,8 +2014,22 @@ class ClassRoom {
      * クラス名簿を出力する
      */
     public void showClassRoom() {
-
+        System.out.println("------------------------------------");
+        System.out.println(this.grade + "年" + this.classNumber + "組 クラス名簿");
+        System.out.println("------------------------------------");
+        this.teachers.forEach((key, teacher) -> {
+            System.out.print(key + " ");
+            teacher.showTeacherInformation();
+        });
+        System.out.println("------------------------------------");
+        System.out.println("生徒一覧");
+        this.students.forEach((key, student) -> {
+            System.out.print(key + ". ");
+            student.showName();
+        });
+        System.out.println("------------------------------------");
     }
+
 }
 /**
  * 生徒クラス
