@@ -1960,7 +1960,11 @@ class SampleQQQQ {
 
 class ClassKadai {
     public static void main(String[] args) {
-
+       ClassRoom classRoom = new ClassRoom();
+       classRoom.setMainTeacher();
+       classRoom.setSubTeacher();
+       classRoom.setStudent();
+       classRoom.showClassRoom();
     }
 }
 class ClassRoom {
@@ -2028,6 +2032,12 @@ class ClassRoom {
             student.showName();
         });
         System.out.println("------------------------------------");
+    }
+
+    public ClassRoom () {
+      this.setMainTeacher();
+      this.setStudent();
+      this.setSubTeacher();
     }
 
 }
