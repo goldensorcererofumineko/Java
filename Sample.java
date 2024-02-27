@@ -2089,3 +2089,20 @@ class Teacher {
         System.out.println("氏名: " + this.name + " 教科: " + this.subject);
     }
 }
+
+class Algorithm {
+    public static void main(String[] args) {
+        String str = "abcadefg";
+        System.out.println(isUniqueChars(str));
+    }
+    public static boolean isUniqueChars(String str) {
+      if (str.length() > 128) return false;
+      boolean[] char_set = new boolean[128];
+        for (int i = 0; i < str.length(); i++ ) {
+            int val = str.charAt(i);
+            if (char_set[val]) return false;
+            char_set[val] = true;
+        }
+        return true;
+  }
+}
