@@ -2092,17 +2092,15 @@ class Teacher {
 
 class Algorithm {
     public static void main(String[] args) {
-        String str = "abcadefg";
-        System.out.println(isUniqueChars(str));
+        String str1 = "god";
+        String str2 = "dog";
+        System.out.println(permutation(str1, str2));
     }
-    public static boolean isUniqueChars(String str) {
-      if (str.length() > 128) return false;
-      boolean[] char_set = new boolean[128];
-        for (int i = 0; i < str.length(); i++ ) {
-            int val = str.charAt(i);
-            if (char_set[val]) return false;
-            char_set[val] = true;
-        }
-        return true;
+    public static boolean permutation(String s, String t) {
+        char[] charArray1 = s.toCharArray();
+        char[] charArray2 = t.toCharArray();
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+        return Arrays.equals(charArray1, charArray2);
   }
 }
