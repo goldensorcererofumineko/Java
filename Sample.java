@@ -2092,15 +2092,16 @@ class Teacher {
 
 class Algorithm {
     public static void main(String[] args) {
-        String str1 = "god";
-        String str2 = "dog";
-        System.out.println(permutation(str1, str2));
+        String str1 = "waterbottle";
+        String str2 = "erbottlewat";
+        System.out.println(isRotation(str1, str2));
     }
-    public static boolean permutation(String s, String t) {
-        char[] charArray1 = s.toCharArray();
-        char[] charArray2 = t.toCharArray();
-        Arrays.sort(charArray1);
-        Arrays.sort(charArray2);
-        return Arrays.equals(charArray1, charArray2);
-  }
+
+    public static boolean isSubstring(String s1, String s2) {
+        return s1.matches(".*" + s2 + ".*$");
+    }
+
+    public static boolean isRotation(String s, String t) {
+      
+    }
 }
