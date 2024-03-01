@@ -2102,6 +2102,11 @@ class Algorithm {
     }
 
     public static boolean isRotation(String s, String t) {
-      
+        int len = s.length();
+        if ( len == t.length() && len > 0 ) {
+            String ss = s + s;
+            return isSubstring(ss, t);
+        }
+        return false;
     }
 }
