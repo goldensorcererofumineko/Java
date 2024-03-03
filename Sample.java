@@ -2041,9 +2041,7 @@ class ClassRoom {
     }
 
 }
-/**
- * 生徒クラス
- */
+
 class Student {
     private String name;
 
@@ -2089,7 +2087,7 @@ class Teacher {
         System.out.println("氏名: " + this.name + " 教科: " + this.subject);
     }
 }
-
+/* 
 class Algorithm {
     public static void main(String[] args) {
         String str1 = "waterbottle";
@@ -2118,7 +2116,6 @@ class Algorithm2 {
         swap(a, b);
     }
 
-    /* ここにswapメソッドを定義 */
     public static void swap(int a, int b) {
       a = a + b;
       b = a - b;
@@ -2126,4 +2123,11 @@ class Algorithm2 {
       System.out.println("a:" + a);
       System.out.println("b:" + b);
     }
+}
+*/
+ class SampleBlow {
+  public static void main(String[] args) {
+    
+  }
+  
 }
