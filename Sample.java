@@ -2127,7 +2127,52 @@ class Algorithm2 {
 */
  class SampleBlow {
   public static void main(String[] args) {
-    
+    String answer = "dbbc";
+    String solution = "abdd";
+    playHitAndBlow(answer, solution);
   }
+      public static void playHitAndBlow(String answer, String solution) {
+        Scanner scanner = new Scanner();
+
+        while (true) {
+            System.out.print("Guess the 4-letter word: ");
+            String guess = scanner.nextLine();
+
+            if (guess.equals(answer)) {
+                System.out.println("Congratulations! You guessed it!");
+                break;
+            } else {
+                int hits = countHits(answer, guess);
+                int blows = countBlows(answer, guess);
+
+                System.out.println("Hits: " + hits);
+                System.out.println("Blows: " + blows);
+            }
+        }
+
+        scanner.close();
+    }
+
+    private static int countHits(String target, String guess) {
+        int hits = 0;
+        for (int i = 0; i < target.length(); i++) {
+            if (target.charAt(i) == guess.charAt(i)) {
+                hits++;
+            }
+        }
+        return hits;
+    }
+
+    private static int countBlows(String target, String guess) {
+        int blows = 0;
+        for (int i = 0; i < target.length(); i++) {
+            for (int j = 0; j < guess.length(); j++) {
+                if (i != j && target.charAt(i) == guess.charAt(j)) {
+                    blows++;
+                }
+            }
+        }
+        return blows;
+    }
   
 }
