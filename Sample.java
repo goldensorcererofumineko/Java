@@ -2129,50 +2129,63 @@ class Algorithm2 {
   public static void main(String[] args) {
     String answer = "dbbc";
     String solution = "abdd";
-    playHitAndBlow(answer, solution);
+    Game.playHitAndBlow(answer, solution);
   }
-      public static void playHitAndBlow(String answer, String solution) {
-        Scanner scanner = new Scanner();
+}
+class Game {
+    public static int MAX_KINDS = 4;
 
-        while (true) {
-            System.out.print("Guess the 4-letter word: ");
-            String guess = scanner.nextLine();
+    public static void playHitAndBlow(String answer, String solution) {
+        if (answer.length() != solution.length()) return;
+        Result result = Game.estimate(answer, solution);
+        System.out.println(result.toString());
+    }
 
-            if (guess.equals(answer)) {
-                System.out.println("Congratulations! You guessed it!");
-                break;
+    public static int code(char c) {
+        switch (c) {
+            case 'A':
+                return 0;
+            case 'B':
+                return 1;
+            case 'C':
+                return 2;
+            case 'D':
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
+    public static Result estimate(String guess, String solution) {
+        Result res = new Result();
+        int[] frequencies = new int[MAX_KINDS];
+        /* ヒットを数えて頻度配列を作成する */
+        for (int i = 0; i < guess.length(); i++) {
+            if (guess.charAt(i) == solution.charAt(i)) {
+                res.hits++;
             } else {
-                int hits = countHits(answer, guess);
-                int blows = countBlows(answer, guess);
-
-                System.out.println("Hits: " + hits);
-                System.out.println("Blows: " + blows);
+                /* ヒットでない場合のみ頻度配列を増やす
+                 * ヒットの場合は、そのスロットはすでに使われている */
+                int code = code(solution.charAt(i));
+                frequencies[code]++;
             }
         }
-
-        scanner.close();
-    }
-
-    private static int countHits(String target, String guess) {
-        int hits = 0;
-        for (int i = 0; i < target.length(); i++) {
-            if (target.charAt(i) == guess.charAt(i)) {
-                hits++;
+        /* 擬似ヒットを計算する */
+        for (int i = 0; i < guess.length(); i++) {
+            int code = code(guess.charAt(i));
+            if (code >= 0 && frequencies[code] > 0 && guess.charAt(i) != solution.charAt(i)) {
+                res.pseudoHits++;
+                frequencies[code]--;
             }
         }
-        return hits;
+        return res;
     }
+}
+class Result {
+    public int hits = 0;
+    public int pseudoHits = 0;
 
-    private static int countBlows(String target, String guess) {
-        int blows = 0;
-        for (int i = 0; i < target.length(); i++) {
-            for (int j = 0; j < guess.length(); j++) {
-                if (i != j && target.charAt(i) == guess.charAt(j)) {
-                    blows++;
-                }
-            }
-        }
-        return blows;
+    public String toString() {
+        return hits + "ヒット" + pseudoHits + "ブロー";
     }
-  
 }
