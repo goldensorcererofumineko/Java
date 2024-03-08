@@ -2211,3 +2211,19 @@ class SortTask {
         }
     }
 }
+class Calc {
+  public static void main(String[] args) {
+    int num = 12304;
+    int i = calc(num);
+        System.out.println("整数値：" + num);
+        System.out.println("各桁の合計値：" + i);
+
+    }
+    private static int calc(int n) {
+      int i = 0;
+      while (n != 0) {
+        i += n % 10;
+        n /= 10;
+      }
+    }
+  }
