@@ -2225,5 +2225,26 @@ class Calc {
         i += n % 10;
         n /= 10;
       }
+      return i;
     }
   }
+
+  class Change {
+    public static void main(String[] args) {
+        // 数値リテラルはアンダースコアを入れて桁の可読性をよくすることが出来る
+        int deposit = 10_000; // 10000 と同等
+        int amount = 3_214; // 3214 と同等
+
+        // 以下に処理を追加する
+        int result = deposit - amount;
+        while (true) {
+          amount /= 10;
+          if (result == 0) {
+            break;
+          }
+
+        }
+
+        System.out.println("合計金額 : " + String.format("%,d", amount) + "円 預り金 : " + String.format("%,d", deposit) +"円 おつり : " + String.format("%,d", result) + "円");
+    }
+}
