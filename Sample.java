@@ -2248,3 +2248,24 @@ class Calc {
         System.out.println("合計金額 : " + String.format("%,d", amount) + "円 預り金 : " + String.format("%,d", deposit) +"円 おつり : " + String.format("%,d", result) + "円");
     }
 }
+
+class PrimeNumber {
+    public static void main(String[] args) {
+        int inputNum = 37;
+
+        // 以下出力の処理をコーディングする
+
+    }
+
+    public static boolean isPrimeNumber(int inputNum) {
+        // 以下素数の確認をする処理を追加する
+
+    }
+}
+/* ヒント
+
+素数は、正の整数で 1 とその数自身でしか割り切れない数を指します。
+
+今回inputNumは 37 なので、1 と 37 以外で割り切れないので素数です。
+
+また、割り切れれば素数でないと判断できるということは、半分は素数でないと除外できそうです。*/
