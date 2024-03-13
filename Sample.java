@@ -2196,6 +2196,7 @@ class SortTask {
 
         // 以下にソート処理を実装する
         int n = nums.length;
+        /* 
         for (int i = 0; i < n; i++) {
           for (int j = 0; j < n - i - 1; j++) {
             if (nums[j] > nums[j + 1]) {
@@ -2205,6 +2206,25 @@ class SortTask {
             }
           }
         }
+        */
+          int i = 0;
+            while (i < n - 1) {
+              int j = i;
+              int l = j + 1;
+              while (l < n) {
+                if (nums[j] > nums[l]) {
+                  l = j;
+                }
+                else {
+                  l = l + 1;
+                }
+              }
+            int t = nums[j];
+            nums[j] = nums[l];
+            nums[l] = t;
+            i = i + 1;
+            }
+
                 System.out.println("Sorted Array:");
         for (int num : nums) {
             System.out.print(num + " ");
@@ -2276,15 +2296,7 @@ class PrimeNumber {
     }
 }
 
-/*public class Change {
-    public static void main(String[] args) {
-        // 数値リテラルはアンダースコアを入れて桁の可読性を良くすることが出来る
-        int deposit = 10_000; // 10000 と同等
-        int amount = 3_214; // 3214 と同等
-
-        // 以下に処理を追加する
-        int change = deposit - amount;
-
+/*
         // 金額の表示をしたい場合、String の format メソッドを利用すると出力時に任意の形式で表示できます
         System.out.println("合計金額 : " + String.format("%,d", amount)
                 + "円 預り金 : " + String.format("%,d", deposit)
@@ -2305,7 +2317,7 @@ class PrimeNumber {
         // 文字列を結合するときは String より StringBuilder の方が処理速度が高速です
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < money.length; i++) {
-            // append メソッドで文字列追加
+            // append メソッドで文字列追加　
             result.append(String.format("%,d", money[i]));
             if (isCoin[i]) {
                 result.append(coin);
