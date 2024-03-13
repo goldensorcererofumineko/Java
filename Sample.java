@@ -2207,22 +2207,16 @@ class SortTask {
           }
         }
         */
-          int i = 0;
-            while (i < n - 1) {
-              int j = i;
-              int l = j + 1;
-              while (l < n) {
-                if (nums[j] > nums[l]) {
-                  l = j;
-                }
-                else {
-                  l = l + 1;
-                }
-              }
-            int t = nums[j];
-            nums[j] = nums[l];
-            nums[l] = t;
-            i = i + 1;
+        for (int i = 0; i < n - 1; i++) {
+          int minIndex = i;
+          for (int j = i + 1; j < n; j++ ) {
+            if (nums[j] < nums[i]) {
+              minIndex = j;
+            }
+            }
+            int t = nums[i];
+            nums[i] = nums[minIndex];
+            nums[minIndex] = t;
             }
 
                 System.out.println("Sorted Array:");
