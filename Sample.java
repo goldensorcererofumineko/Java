@@ -2325,19 +2325,17 @@ class PrimeNumber {
     }
 } */
 
-class SampleFor {
+class Application3 {
   public static void main(String[] args) {
-    int n = 7;
-    if (n > 1) {
-      int i = n - 1;
-      int l = i + n;
-      int j = n - 1;
-      int i = n;
-      int n = j;
-    }
-    else if (n == 1) {
-      break;
-    }
-    System.out.println("合計値:" );
+      int n = 7;
+      System.out.println("n = " + n);
+      System.out.println("合計値：" + sum(n));
+  }
+
+  public static int sum(int n) {
+      if (n > 1) {
+          return n + sum(n - 1);
+      }
+      return 1;
   }
 }
