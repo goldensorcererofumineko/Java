@@ -2343,7 +2343,7 @@ class Application3 {
 
 /* ハノイの塔 
  *  * 円盤 4枚の時
- *
+ *  I < J < K < L
  *  1     | I |              |              |
  *  2    |  J  |             |              |
  *  3   |   K   |            |              |
@@ -2369,6 +2369,9 @@ class Hanoi {
   public int moveCount = 0; // 移動回数
 
   // 以下に円盤を移動する処理メソッドを追加する
+  public static char hanoi(char go) {
+    
+  }
 
 }
 
