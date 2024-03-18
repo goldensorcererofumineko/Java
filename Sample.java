@@ -2369,8 +2369,14 @@ class Hanoi {
   public int moveCount = 0; // 移動回数
 
   // 以下に円盤を移動する処理メソッドを追加する
-  public static char hanoi(char go) {
-    
+
+  public void hanoi(char x,char z,char y,int n) {
+    if (n > 0) {
+      hanoi(x, y, z, (n-1));
+      System.out.println(this.disks[n - 1] + "の板を" + x + "から" + y + "に移動");
+      this.moveCount++;
+      hanoi(y, z, x,(n - 1));
+    }
   }
 
 }
@@ -2378,6 +2384,9 @@ class Hanoi {
 class Execution8 {
   public static void main(String[] args) {
       // 以下に出力処理をコーディングする
-
+      Hanoi Exe = new Hanoi();
+      System.out.println("円盤数 : " + Exe.disks.length + "枚");
+      Exe.hanoi(Exe.start, Exe.goal, Exe.tmp, Exe.disks.length);
+      System.out.println("移動回数 : " + Exe.moveCount + "回");
   }
 }
