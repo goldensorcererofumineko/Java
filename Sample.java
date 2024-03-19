@@ -2390,3 +2390,26 @@ class Execution8 {
       System.out.println("移動回数 : " + Exe.moveCount + "回");
   }
 }
+
+class RockPaperScissors {
+  private Map<Integer, String> hands = new HashMap<Integer, String>();
+  private List<String> results = new ArrayList<String>();
+  public void RockPaperScissors() {
+    hands.put(1, "グー");
+    hands.put(2, "チョキ");
+    hands.put(3, "パー");
+    results.add("あいこ");
+    results.add("負け");
+    results.add("勝ち");
+
+  }
+  public static void Execution() {
+
+  }
+}
+
+class ExecutionJ {
+  public static void main(String[] args) {
+    
+  }
+}
