@@ -2392,9 +2392,11 @@ class Execution8 {
 }
 
 class RockPaperScissors {
+  private static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
   private Map<Integer, String> hands = new HashMap<Integer, String>();
   private List<String> results = new ArrayList<String>();
-  public void RockPaperScissors() {
+  private int playerHand;
+  public RockPaperScissors() {
     hands.put(1, "グー");
     hands.put(2, "チョキ");
     hands.put(3, "パー");
@@ -2403,13 +2405,35 @@ class RockPaperScissors {
     results.add("勝ち");
 
   }
-  public static void Execution() {
-
+  public void Execution() {
+    this.inputPlayerHand();
   }
+  private void showMenu(Map<Integer, String> menu) {
+    menu.forEach((key, value) -> System.out.print(key + ":" + value + " "));
+      System.out.println();
+    }
+  private void inputPlayerHand() {
+    while (true) {
+      this.showMenu(this.hands);
+      this.playerHand = this.inputNum();
+      if (this.playerHand > 0 && this.playerHand <= this.hands.size()) {
+        break;
+          }
+        System.out.println("該当する半角数字で入力してください");
+    }
+  }
+ private int inputNum() {
+    try {
+    return Integer.parseInt(BR.readLine());
+      } catch (NumberFormatException | IOException e) {
+      return 0;
+      }
+    }
 }
 
 class ExecutionJ {
   public static void main(String[] args) {
-    
+    RockPaperScissors Exe = new RockPaperScissors();
+    Exe.Execution();
   }
 }
