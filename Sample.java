@@ -2396,6 +2396,7 @@ class RockPaperScissors {
   private Map<Integer, String> hands = new HashMap<Integer, String>();
   private List<String> results = new ArrayList<String>();
   private int playerHand;
+  private int cpuHand;
   public RockPaperScissors() {
     hands.put(1, "グー");
     hands.put(2, "チョキ");
@@ -2407,6 +2408,7 @@ class RockPaperScissors {
   }
   public void Execution() {
     this.inputPlayerHand();
+    this.setCpuHand();
   }
   private void showMenu(Map<Integer, String> menu) {
     menu.forEach((key, value) -> System.out.print(key + ":" + value + " "));
@@ -2422,6 +2424,10 @@ class RockPaperScissors {
         System.out.println("該当する半角数字で入力してください");
     }
   }
+    private void setCpuHand() {
+       // ランダム値を 1 ~ 3 の範囲で生成する
+       this.cpuHand = new Random().nextInt(3) + 1;
+      }
  private int inputNum() {
     try {
     return Integer.parseInt(BR.readLine());
