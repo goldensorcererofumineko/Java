@@ -2425,7 +2425,6 @@ class RockPaperScissors {
     }
   }
     private void setCpuHand() {
-       // ランダム値を 1 ~ 3 の範囲で生成する
        this.cpuHand = new Random().nextInt(3) + 1;
       }
  private int inputNum() {
@@ -2440,6 +2439,13 @@ class RockPaperScissors {
 class ExecutionJ {
   public static void main(String[] args) {
     RockPaperScissors Exe = new RockPaperScissors();
-    Exe.Execution();
+    Exe.Execution(); 
   }
+}
+/**
+ * Sample
+ */
+public class Sample {
+
+  
 }
