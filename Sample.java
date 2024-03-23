@@ -2397,6 +2397,7 @@ class RockPaperScissors {
   private List<String> results = new ArrayList<String>();
   private int playerHand;
   private int cpuHand;
+  private int result;
   public RockPaperScissors() {
     hands.put(1, "グー");
     hands.put(2, "チョキ");
@@ -2404,11 +2405,12 @@ class RockPaperScissors {
     results.add("あいこ");
     results.add("負け");
     results.add("勝ち");
-
   }
   public void Execution() {
     this.inputPlayerHand();
     this.setCpuHand();
+    this.judgement();
+    this.showResult();
   }
   private void showMenu(Map<Integer, String> menu) {
     menu.forEach((key, value) -> System.out.print(key + ":" + value + " "));
@@ -2421,19 +2423,53 @@ class RockPaperScissors {
       if (this.playerHand > 0 && this.playerHand <= this.hands.size()) {
         break;
           }
-        System.out.println("該当する半角数字で入力してください");
+      System.out.println("該当する半角数字で入力してください");
     }
   }
-    private void setCpuHand() {
-       this.cpuHand = new Random().nextInt(3) + 1;
-      }
- private int inputNum() {
+  private void setCpuHand() {
+    this.cpuHand = new Random().nextInt(3) + 1;
+    }
+  private int inputNum() {
     try {
     return Integer.parseInt(BR.readLine());
       } catch (NumberFormatException | IOException e) {
       return 0;
+    }
+  }
+  private void judgement() {
+    if (this.playerHand == this.cpuHand) {
+      this.result = 0;
+      return;
+      }
+      switch (this.playerHand) {
+      case 1: // グーの場合
+      if (this.cpuHand == 2) {
+      this.result = 2; // 勝ち
+      } else if (this.cpuHand == 3) {
+      this.result = 1; // 負け
+      }
+      break;
+      case 2: // チョキの場合
+      if (this.cpuHand == 3) {
+      this.result = 2; // 勝ち
+        } else if (this.cpuHand == 1) {
+      this.result = 1; // 負け
+        }
+      break;
+      case 3: // パーの場合
+      if (this.cpuHand == 1) {
+      this.result = 2; // 勝ち
+        } else if (this.cpuHand == 2) {
+      this.result = 1; // 負け
+        }
+      break;
       }
     }
+  private void showResult() {
+    System.out.println("Player : " + hands.get(this.playerHand));
+    System.out.println("CPU  : " + hands.get(this.cpuHand));
+    System.out.println("Result : " + results.get(this.result));
+  }
 }
 
 class ExecutionJ {
@@ -2441,11 +2477,4 @@ class ExecutionJ {
     RockPaperScissors Exe = new RockPaperScissors();
     Exe.Execution(); 
   }
-}
-/**
- * Sample
- */
-public class Sample {
-
-  
 }
