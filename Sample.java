@@ -2394,17 +2394,23 @@ class Execution8 {
 class RockPaperScissors {
   private static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
   private Map<Integer, String> hands = new HashMap<Integer, String>();
+  private Map<Integer, String> playAgainOrEnd = new HashMap<Integer, String>();
   private List<String> results = new ArrayList<String>();
   private int playerHand;
   private int cpuHand;
   private int result;
+  private int battleCount;
+  private int winCount;
+  private int loseCount;
   public RockPaperScissors() {
-    hands.put(1, "グー");
-    hands.put(2, "チョキ");
-    hands.put(3, "パー");
-    results.add("あいこ");
-    results.add("負け");
-    results.add("勝ち");
+    this.hands.put(1, "グー");
+    this.hands.put(2, "チョキ");
+    this.hands.put(3, "パー");
+    this.results.add("あいこ");
+    this.results.add("負け");
+    this.results.add("勝ち");
+    this.playAgainOrEnd.put(1, "もう一度対戦する");
+    this.playAgainOrEnd.put(2, "終了する");
   }
   public void Execution() {
     this.inputPlayerHand();
@@ -2437,6 +2443,7 @@ class RockPaperScissors {
     }
   }
   private void judgement() {
+    this.battleCount++;
     if (this.playerHand == this.cpuHand) {
       this.result = 0;
       return;
@@ -2444,24 +2451,30 @@ class RockPaperScissors {
       switch (this.playerHand) {
       case 1: // グーの場合
       if (this.cpuHand == 2) {
-      this.result = 2; // 勝ち
+        this.winCount++;
+        this.result = 2; // 勝ち
       } else if (this.cpuHand == 3) {
-      this.result = 1; // 負け
+        this.loseCount++;
+        this.result = 1; // 負け
       }
       break;
       case 2: // チョキの場合
       if (this.cpuHand == 3) {
-      this.result = 2; // 勝ち
-        } else if (this.cpuHand == 1) {
-      this.result = 1; // 負け
+        this.winCount++;
+        this.result = 2; // 勝ち
+      } else if (this.cpuHand == 1) {
+        this.loseCount++;
+        this.result = 1; // 負け
         }
       break;
       case 3: // パーの場合
       if (this.cpuHand == 1) {
-      this.result = 2; // 勝ち
-        } else if (this.cpuHand == 2) {
-      this.result = 1; // 負け
-        }
+        this.winCount++;
+        this.result = 2; // 勝ち
+      } else if (this.cpuHand == 2) {
+        this.loseCount++;
+        this.result = 1; // 負け
+      }
       break;
       }
     }
@@ -2469,6 +2482,12 @@ class RockPaperScissors {
     System.out.println("Player : " + hands.get(this.playerHand));
     System.out.println("CPU  : " + hands.get(this.cpuHand));
     System.out.println("Result : " + results.get(this.result));
+  }
+  private int isPlayAgainOrEnd() {
+    while (true) {
+    this.showMenu(this.playAgainOrEnd);
+    int input = this.inputNum();
+    }
   }
 }
 
