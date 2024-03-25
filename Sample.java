@@ -2413,10 +2413,16 @@ class RockPaperScissors {
     this.playAgainOrEnd.put(2, "終了する");
   }
   public void Execution() {
-    this.inputPlayerHand();
-    this.setCpuHand();
-    this.judgement();
-    this.showResult();
+    while (true) {
+      this.inputPlayerHand();
+      this.setCpuHand();
+      this.judgement();
+      this.showResult();
+      if (this.isPlayAgainOrEnd() == 2) {
+      this.showFinalResult();
+      break;
+      }
+    }
   }
   private void showMenu(Map<Integer, String> menu) {
     menu.forEach((key, value) -> System.out.print(key + ":" + value + " "));
@@ -2487,8 +2493,17 @@ class RockPaperScissors {
     while (true) {
     this.showMenu(this.playAgainOrEnd);
     int input = this.inputNum();
+    if (input > 0 && input <= this.playAgainOrEnd.size() ) {
+      
     }
+    System.out.println("該当する半角数字で入力してください");
+    }
+  } 
+  private void showFinalResult() {
+    int draw = this.battleCount - this.winCount - this.loseCount;
+    System.out.println("最終結果：" + this.winCount + "勝"+ this.loseCount + "敗 " + draw + "引き分け");
   }
+
 }
 
 class ExecutionJ {
