@@ -2484,6 +2484,12 @@ class RockPaperScissors {
       break;
       }
     }
+  /*      this.result = (this.playerHand - this.cpuHand + 3) % 3;
+        if (this.result == 2) {
+            this.winCount++;
+        } else if (this.result == 1){
+            this.loseCount++;
+        } */
   private void showResult() {
     System.out.println("Player : " + hands.get(this.playerHand));
     System.out.println("CPU  : " + hands.get(this.cpuHand));
