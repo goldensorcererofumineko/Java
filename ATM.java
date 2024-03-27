@@ -7,6 +7,7 @@ import java.util.Map;
 class ATM {
     private static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
     public Map<Integer, String> menu = new HashMap<Integer, String>();
+    private int money = 0;
     public ATM() {
         this.menu.put(1, "預け入れ");
         this.menu.put(2, "引き出し");
@@ -44,6 +45,7 @@ class ATM {
                 case 2:
                     break;
                 case 3:
+                    this.moneyCalc();
                     break;
                 case 4:
                 System.out.println("ATM のご利用ありがとうございました");
@@ -51,6 +53,9 @@ class ATM {
                 break;
             }
         }
+    }
+    private void moneyCalc() {
+        System.out.println("残高は" + this.money + "円です");
     }
 }
 class ExecutionATM {
