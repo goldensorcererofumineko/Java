@@ -8,7 +8,9 @@ class ATM {
     private static final BufferedReader BR = new BufferedReader(new InputStreamReader(System.in));
     public Map<Integer, String> menu = new HashMap<Integer, String>();
     private int money = 0;
-    public ATM() {
+    private static final int MIN = 1;
+    private static final int MAX = 2000000;
+        public ATM() {
         this.menu.put(1, "預け入れ");
         this.menu.put(2, "引き出し");
         this.menu.put(3, "残高照会");
@@ -41,6 +43,7 @@ class ATM {
         int inputMenu = this.inputMenu(menu);
             switch (inputMenu) {
                 case 1:
+                    this.deposit();
                     break;
                 case 2:
                     break;
@@ -48,14 +51,27 @@ class ATM {
                     this.moneyCalc();
                     break;
                 case 4:
-                System.out.println("ATM のご利用ありがとうございました");
-                isFinished = false;
-                break;
+                    System.out.println("ATM のご利用ありがとうございました");
+                    isFinished = false;
+                    break;
             }
         }
     }
     private void moneyCalc() {
         System.out.println("残高は" + this.money + "円です");
+    }
+    private void deposit() {
+        int depo = -1;
+        while(true) {
+            System.out.println("金額を入力して下さい");
+            depo = this.inputNum();
+            if(depo >= MIN && depo <= MAX) {
+                break;
+            }
+            System.out.println(MIN + "円から" + (MAX/10000) + "万円以内で入力して下さい");
+        }
+        this.money+=depo;
+        System.out.println(money +"円お預かりしました");
     }
 }
 class ExecutionATM {
